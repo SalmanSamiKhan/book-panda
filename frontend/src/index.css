@@ -12,6 +12,9 @@ code {
     monospace;
 }
 
+a{
+  text-decoration: none;
+}
 
 .books{
   display: flex;
@@ -23,8 +26,8 @@ code {
 .book{
   /* border: 1px solid black; */
   text-align: center;
-  margin: 1rem;
-  padding: 1rem;
+  margin: .5rem;
+  padding: .5rem;
   word-wrap: break-word;
   height: 20rem;
   width: 15rem;
@@ -34,3 +37,9 @@ code {
   height: 150px;
   width: 100px;
 }
+
+@media (min-width: 1025px) {
+  .h-custom {
+  height: 100vh !important;
+  }
+  }
