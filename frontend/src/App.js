@@ -1,34 +1,36 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import HomeScreen from "./screens/HomeScreen";
-import About from "./components/About";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
-import Cart from "./components/Cart";
-import BookScreen from "./screens/BookScreen";
+import NavigationBar from "./components/NavigationBar";
+import HomeScreen from "./pages/HomePage";
+import About from "./pages/AboutPage";
+import Signup from "./pages/SignupPage";
+import Login from "./pages/LoginPage";
+import Cart from "./pages/CartPage";
+import BookScreen from "./pages/BookPage";
+import { Container} from 'react-bootstrap';
+import Footer from "./components/Footer";
+
 function App() {
   return (
     <Router>
-    <div>
-      <header>
-        <Navbar />
-      </header>
-      <main>
-      <div className="container">
-      <Routes>
+    <div className="d-flex flex-column site-container">
+    <header>
+        <NavigationBar/>
+        </header>
+        <main>
+      <Container>
+        <Routes>
         <Route path="/" element={<HomeScreen/>}/>
         <Route path="/book/:slug" element={<BookScreen/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/cart" element={<Cart/>}/>
-        
         </Routes>
-        </div>
+      </Container>
       </main>
       <footer>
-
+      <Footer/>
       </footer>
     </div>
     </Router>

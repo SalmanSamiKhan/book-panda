@@ -9,7 +9,7 @@ const data = {
             year:1928,
             price:250,
             stock:20,
-            rating:9.2,
+            rating:4.7,
             review:24,
             desc:"A young German soldier of World War I tells of a generation of men who, even though they may have escaped shells, were destroyed by the war."
         },
@@ -22,7 +22,7 @@ const data = {
             year:1952,
             price:270,
             stock:27,
-            rating:9.4,
+            rating:4.4,
             review:35,
             desc:"The Old Man and the Sea, short heroic novel by Ernest Hemingway, published in 1952 and awarded the 1953 Pulitzer Prize for fiction.",
             
@@ -36,7 +36,7 @@ const data = {
             year:2002,
             price:200,
             stock:8,
-            rating:8.8,
+            rating:4.2,
             review:45,
             desc:"KAFKA ON THE SHORE is a beautifully told story about needing to let go and step out of your own reality in order to find out that life is meant to be lived."
         },
@@ -49,7 +49,7 @@ const data = {
             year:1960,
             price:280,
             stock:15,
-            rating:8.9,
+            rating:3.8,
             review:26,
             desc:"To Kill a Mockingbird is primarily a novel about growing up under extraordinary circumstances in the 1930s in the Southern United States."
         },
@@ -62,7 +62,7 @@ const data = {
             year:1928,
             price:250,
             stock:20,
-            rating:9.2,
+            rating:4.7,
             review:24,
             desc:"A young German soldier of World War I tells of a generation of men who, even though they may have escaped shells, were destroyed by the war."
         },
@@ -75,7 +75,7 @@ const data = {
             year:1952,
             price:270,
             stock:27,
-            rating:9.4,
+            rating:4.4,
             review:35,
             desc:"The Old Man and the Sea, short heroic novel by Ernest Hemingway, published in 1952 and awarded the 1953 Pulitzer Prize for fiction.",
             
@@ -89,7 +89,7 @@ const data = {
             year:2002,
             price:200,
             stock:8,
-            rating:8.8,
+            rating:4.2,
             review:45,
             desc:"KAFKA ON THE SHORE is a beautifully told story about needing to let go and step out of your own reality in order to find out that life is meant to be lived."
         },
@@ -102,11 +102,10 @@ const data = {
             year:1960,
             price:280,
             stock:15,
-            rating:8.9,
+            rating:3.8,
             review:26,
             desc:"To Kill a Mockingbird is primarily a novel about growing up under extraordinary circumstances in the 1930s in the Southern United States."
-        },
-        
+        },    
     ]
 }
 

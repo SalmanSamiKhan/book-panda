@@ -12,30 +12,40 @@ code {
     monospace;
 }
 
+.site-container{
+  min-height: 100vh;
+}
+main{
+  flex: 1;
+}
 a{
   text-decoration: none;
 }
+
 
 .books{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
+  margin: 2rem 0 2rem 0;
 }
 
 .book{
-  /* border: 1px solid black; */
   text-align: center;
-  margin: .5rem;
-  padding: .5rem;
-  word-wrap: break-word;
-  height: 20rem;
-  width: 15rem;
+  margin: 1rem;
 }
 
 .book img{
-  height: 150px;
-  width: 100px;
+  height: 200px;
+  width: 150px;
+}
+
+.book-info{
+  /* padding: 1rem; */
+}
+
+.rating span{
+  color: orange;
 }
 
 @media (min-width: 1025px) {

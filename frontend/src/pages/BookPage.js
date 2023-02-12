@@ -2,10 +2,12 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 
 const BookScreen = () => {
-    const params = useParams()
-    const {slug} = params
+  const params = useParams()
+  const { slug } = params
   return (
-    <div>{slug}</div>
+    <div>
+      <h1>{slug}</h1>
+    </div>
   )
 }
 
