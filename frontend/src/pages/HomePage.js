@@ -41,22 +41,22 @@ const HomeScreen = () => {
         fetchData()
     }, [])
     return (
-            <div className="books">
+        <div className="books">
             <h1 className='text-center'>Featured Books</h1>
-                {
-                    loading ? (
-                        <div>Loading...</div>
-                    ) : error ? (
-                        <div>{error}</div>
-                    ) :
-                        <Row>
-                            {books.map(book => (
-                                <Col key={book.slug} sm={6} md={4} lg={3} className='mb-3'>
-                                    <Book book={book}/>
-                                </Col>
-                            ))}</Row>
-                }
-            </div>
+            {
+                loading ? (
+                    <div>Loading...</div>
+                ) : error ? (
+                    <div>{error}</div>
+                ) :
+                    <Row>
+                        {books.map(book => (
+                            <Col key={book.slug} sm={6} md={4} lg={3} className='mb-3'>
+                                <Book book={book} />
+                            </Col>
+                        ))}</Row>
+            }
+        </div>
     )
 }
 
