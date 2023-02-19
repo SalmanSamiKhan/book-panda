@@ -1,8 +1,12 @@
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
 
 const About = () => {
     return (
         <div className="about-section paddingTB60 my-5">
+        <Helmet>
+            <title>About</title>
+        </Helmet>
             <div className="container">
                 <div className="row">
                     <div className="col-md-7 col-sm-6">

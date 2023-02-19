@@ -7,16 +7,18 @@ function Book(props) {
     const { book } = props
     return (
         <Card className='book'>
+            <Card.Body className='p-1'>
             <Link to={`/book/${book.slug}`} className='text-decoration-none'>
                 <img src={book.image} alt={book.slug} className='card-img mt-3' />
             </Link>
+            </Card.Body>
             <Card.Body className="book-info">
                 <Link to={`/book/${book.slug}`}>
                     <Card.Title>{book.name}</Card.Title>
                 </Link>
-                <Card.Text><Rating rating={book.rating}/></Card.Text>
-                <Card.Text>${book.price}</Card.Text>
-                <Button>Add to Cart</Button>
+                <Card.Text> <div className='rat'><Rating rating={book.rating} /> &nbsp; ({book.review}) </div></Card.Text>
+                <Card.Text> <h5 >  $ {book.price}  </h5></Card.Text>
+                {/* <Button onClick={addToCart}>Add to Cart</Button> */}
             </Card.Body>
         </Card>
     )

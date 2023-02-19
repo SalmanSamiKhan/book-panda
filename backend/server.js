@@ -7,8 +7,17 @@ app.get('/api/books', (req,res)=>{
     res.send(data.books)
 })
 
-app.get('/api/book/:slug', (req,res)=>{
+app.get('/api/book/slug/:slug', (req,res)=>{
     const book = data.books.find(x=>x.slug===req.params.slug)
+    if(book){
+        res.send(book)
+    }else{
+        res.status(404).send({message:'Book not found'})
+    }
+})
+
+app.get('/api/book/id/:id', (req,res)=>{
+    const book = data.books.find(x=>x._id===req.params.id)
     if(book){
         res.send(book)
     }else{

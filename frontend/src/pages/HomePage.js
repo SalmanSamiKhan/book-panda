@@ -2,6 +2,10 @@ import React, { useEffect, useReducer } from 'react'
 import axios from 'axios'
 import { Col, Row } from 'react-bootstrap';
 import Book from '../components/Book';
+import { Helmet } from 'react-helmet-async';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+
 
 const ACTIONS = {
     REQUEST: 'FETCH_REQUEST',
@@ -40,15 +44,17 @@ const HomeScreen = () => {
         }
         fetchData()
     }, [])
+    
     return (
         <div className="books">
+        <Helmet>
+            <title>Bookmania</title>
+        </Helmet>
             <h1 className='text-center'>Featured Books</h1>
             {
-                loading ? (
-                    <div>Loading...</div>
-                ) : error ? (
-                    <div>{error}</div>
-                ) :
+                loading ? (<LoadingBox/>) 
+                : error ? <MessageBox variant={'danger'} msg='Books Not Found!' error={error}/>
+                :
                     <Row>
                         {books.map(book => (
                             <Col key={book.slug} sm={6} md={4} lg={3} className='mb-3'>

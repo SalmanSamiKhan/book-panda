@@ -1,8 +1,12 @@
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
 
 const Signup = () => {
     return (
         <div className='signup my-5'>
+        <Helmet>
+            <title>Signup</title>
+        </Helmet>
             <form>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Name</label>
