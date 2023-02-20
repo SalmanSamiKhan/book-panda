@@ -109,7 +109,7 @@ const data = {
             image:"/images/img4.jpg",
             year:1960,
             price:28000.00,
-            stock:15,
+            stock:0,
             rating:3.8,
             review:26,
             desc:"To Kill a Mockingbird is primarily a novel about growing up under extraordinary circumstances in the 1930s in the Southern United States."

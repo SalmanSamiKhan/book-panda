@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Alert, Button, Card, Col, ListGroup, ListGroupItem, Row, Form } from 'react-bootstrap'
 import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Store } from '../Store'
 import { BsTrashFill } from 'react-icons/bs'
 import axios from 'axios'
@@ -11,6 +11,7 @@ const Cart = () => {
     const { state, dispatch: cartDispatch } = useContext(Store)
     const { cart } = state
     const { cartItems } = cart
+    const navigate = useNavigate()
     // const [quant,setQuant] = useState(1)
 
     const addToCart = async (item, val) => {
@@ -23,17 +24,17 @@ const Cart = () => {
         cartDispatch({
             type: 'CART_ADD_ITEM', payload: { ...item, qty },
         });
-        toast.success('Product updated successfully!')
+        // toast.success('Product updated successfully!')
         // setQuant(qty)
     }
 
     const handleDelete = (item) => {
         cartDispatch({ type: 'CART_REMOVE_ITEM', payload: item })
-        toast.success('Product deleted successfully!')
+        toast.success('Product removed from cart!')
     }
 
     const handleCheckout = () => {
-        console.log('handle Checkout')
+        navigate('/signin?redirect=/shipping') // authentication
     }
     return (
         <div className='container my-5'>
@@ -84,7 +85,7 @@ const Cart = () => {
                                                 </Col>
                                                 <Col className='mb-2' md={2}> <strong> ${item.price} </strong></Col>
                                                 <Col className='mb-2' md={2}>
-                                                    <button style={{ border: 'none', background: 'none' }} onClick={() => handleDelete(item)} >  <BsTrashFill className='trash' size='1.3em' 
+                                                    <button style={{ border: 'none', background: 'none' }} onClick={() => handleDelete(item)} >  <BsTrashFill className='trash' 
                                                      /> </button>
                                                 </Col>
                                             </Row>

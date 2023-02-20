@@ -11,12 +11,13 @@ import CartPage from "./pages/CartPage";
 import BookPage from "./pages/BookPage";
 import { Container } from 'react-bootstrap';
 import Footer from "./components/Footer";
+import CheckoutPage from "./pages/CheckoutPage";
 
 function App() {
   return (
     <Router>
       <div className="d-flex flex-column site-container">
-        <ToastContainer position='bottom-right' autoClose={1500} limit={1} />
+        <ToastContainer position='bottom-right' autoClose={2000} limit={1} />
         <header>
           <NavigationBar />
         </header>
@@ -29,6 +30,7 @@ function App() {
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
             </Routes>
           </Container>
         </main>

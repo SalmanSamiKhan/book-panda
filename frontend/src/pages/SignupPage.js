@@ -3,10 +3,11 @@ import { Helmet } from 'react-helmet-async'
 
 const Signup = () => {
     return (
-        <div className='signup my-5'>
+        <div className='signup container my-5' style={{maxWidth:'600px'}}>
         <Helmet>
             <title>Signup</title>
         </Helmet>
+        <h2 className="text-center my-3"> Signup</h2>
             <form>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Name</label>

@@ -72,7 +72,7 @@ const BookPage = () => {
     cartDispatch({
       type: 'CART_ADD_ITEM', payload: { ...book, qty },
     });
-    toast.success('Product added to cart successfully!')
+    toast.success('Product added to cart!')
     navigate('/cart')
   };
 
@@ -134,6 +134,8 @@ const BookPage = () => {
                     <ListGroup.Item className='mb-3'> 
                       <Row>
                         <Col className='mb-2'>Qty </Col>
+                        {book.stock>0
+                        ?(
                         <Col className=''>
                           <select
                             onChange={(e)=>setQuant(e.target.value)} value={quant}
@@ -145,17 +147,26 @@ const BookPage = () => {
                             )
                           }
                           </select>
-                        </Col>
+                        </Col>)
+                        :( <Col> <h6 style={{color:'red'}}>U/A</h6> </Col>  )
+                        }
                       </Row>
                     </ListGroup.Item>
 
-                    {book.stock > 0 && (
+                    {book.stock > 0 ? (
                       <ListGroup.Item className='text-center'>
                         {/* <div className="d-grid"> */}
                           <Button variant='primary' onClick={addToCart}>Add to Cart</Button>
                         {/* </div> */}
                       </ListGroup.Item>
-                    )}
+                    )
+                    :
+                    <ListGroup.Item className='text-center'>
+                        {/* <div className="d-grid"> */}
+                          <Button variant='danger' disabled={book.stock === 0} onClick={addToCart}>Unavailable</Button>
+                        {/* </div> */}
+                      </ListGroup.Item>
+                    }
                   </ListGroup>
                 </Card.Body>
               </Card>
