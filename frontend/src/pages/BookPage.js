@@ -72,7 +72,8 @@ const BookPage = () => {
     cartDispatch({
       type: 'CART_ADD_ITEM', payload: { ...book, qty },
     });
-    // navigate('/cart')
+    toast.success('Product added to cart successfully!')
+    navigate('/cart')
   };
 
   return (
@@ -111,13 +112,13 @@ const BookPage = () => {
               <Card>
                 <Card.Body>
                   <ListGroup variant='flush'>
-                    <ListGroup.Item>
+                    <ListGroup.Item className='mb-3'>
                       <Row>
-                        <Col>Price : </Col>
+                        <Col>Price </Col>
                         <Col>${book.price}</Col>
                       </Row>
                     </ListGroup.Item>
-                    <ListGroup.Item>
+                    <ListGroup.Item className='mb-3'>
                       <Row>
                         <Col>Status</Col>
                         <Col>
@@ -130,12 +131,12 @@ const BookPage = () => {
                       </Row>
                     </ListGroup.Item>
 
-                    <ListGroup.Item>
+                    <ListGroup.Item className='mb-3'> 
                       <Row>
-                        <Col className='mb-1'>Qty : </Col>
-                        <Col className='mt-1'>
-                          <Form.Select className='form form-select-sm book-select'
-                            value={quant} onChange={(e)=>setQuant(e.target.value)}
+                        <Col className='mb-2'>Qty </Col>
+                        <Col className=''>
+                          <select
+                            onChange={(e)=>setQuant(e.target.value)} value={quant}
                           >
                           {
                             [...Array(book.stock).keys()].map(x=>(
@@ -143,16 +144,16 @@ const BookPage = () => {
                             )
                             )
                           }
-                          </Form.Select>
+                          </select>
                         </Col>
                       </Row>
                     </ListGroup.Item>
 
                     {book.stock > 0 && (
-                      <ListGroup.Item>
-                        <div className="d-grid">
+                      <ListGroup.Item className='text-center'>
+                        {/* <div className="d-grid"> */}
                           <Button variant='primary' onClick={addToCart}>Add to Cart</Button>
-                        </div>
+                        {/* </div> */}
                       </ListGroup.Item>
                     )}
                   </ListGroup>

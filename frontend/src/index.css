@@ -72,10 +72,11 @@ a{
 }
 
 .cart:hover{
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  animation: shake 0.7s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
   perspective: 1000px;
 }
+
 
 @keyframes shake {
   10%, 90% {
@@ -105,6 +106,19 @@ a{
   width: 60px;
 }
 
+select{
+  border-radius: 15%;
+}
+
+select:hover{
+  border: 2px solid skyblue;
+}
+
+select:checked{
+  border: 2px solid 
+}
+
+
 
 @media (min-width: 1025px) {
   .h-custom {
@@ -112,13 +126,19 @@ a{
   }
   }
 
-@media (min-width:991px ) and (max-width:1199px){
+/* @media (min-width:991px ) and (max-width:1199px){
   .book-select{
     width: 80px;
   }
-}
-@media (min-width:768px ) and (max-width:991px){
+} */
+/* @media (min-width:768px ) and (max-width:991px){
   .cart-select{
     width: 60px;
   }
 }
+
+@media (max-width:768px){
+  .cart-select{
+    width: 60px;
+  }
+} */

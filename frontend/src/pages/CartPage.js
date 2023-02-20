@@ -3,13 +3,38 @@ import { Alert, Button, Card, Col, ListGroup, ListGroupItem, Row, Form } from 'r
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Store } from '../Store'
-import {MdDelete} from 'react-icons/md'
+import { BsTrashFill } from 'react-icons/bs'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const Cart = () => {
     const { state, dispatch: cartDispatch } = useContext(Store)
     const { cart } = state
     const { cartItems } = cart
-    
+    // const [quant,setQuant] = useState(1)
+
+    const addToCart = async (item, val) => {
+        const qty = parseInt(val)
+        const { data } = await axios.get(`/api/book/id/${item._id}`)
+        if (data.stock < qty) {
+            toast.error('Sorry! You have reached maximum limit for this product.')
+            return;
+        }
+        cartDispatch({
+            type: 'CART_ADD_ITEM', payload: { ...item, qty },
+        });
+        toast.success('Product updated successfully!')
+        // setQuant(qty)
+    }
+
+    const handleDelete = (item) => {
+        cartDispatch({ type: 'CART_REMOVE_ITEM', payload: item })
+        toast.success('Product deleted successfully!')
+    }
+
+    const handleCheckout = () => {
+        console.log('handle Checkout')
+    }
     return (
         <div className='container my-5'>
             <Helmet>
@@ -32,26 +57,36 @@ const Cart = () => {
                                                         src={item.image} alt={item.name}></img>
 
                                                 </Col>
-                                                <Col className='mb-2 me-2' md={3}><Link to={`/book/${item.slug}`}>{item.name}</Link></Col>
-                                                <Col className='mb-2 me-4' md={2}>
+                                                <Col className='mb-2' md={4}><Link to={`/book/${item.slug}`}>{item.name}</Link></Col>
+                                                <Col className='mb-2' md={2}>
                                                     {/* <div className="col-md-4"> */}
-                                                    <Col>
-                                                        <Form.Select className='form form-select-sm cart-select'
-                                                            // value={quant} onChange={(e) => setQuant(e.target.value)}
+                                                    <div>
+                                                        {/* <Form.Select className='form form-select-sm cart-select' */}
+                                                        <select
+                                                            value={item.qty} onChange={(e) => addToCart(
+                                                                item, e.target.value
+                                                                // addToCart(item._id),
+                                                                // Number(e.target.value)
+                                                            )}
                                                         >
+
                                                             {
                                                                 [...Array(item.stock).keys()].map(x => (
                                                                     <option value={x + 1}>{x + 1}</option>
                                                                 )
                                                                 )
                                                             }
-                                                        </Form.Select>
-                                                    </Col>
+                                                        </select>
+                                                        {/* </Form.Select> */}
+                                                    </div>
                                                     {/* </div> */}
 
                                                 </Col>
                                                 <Col className='mb-2' md={2}> <strong> ${item.price} </strong></Col>
-                                                <Col className='mb-2' md={2}><MdDelete size='1.7em'/></Col>
+                                                <Col className='mb-2' md={2}>
+                                                    <button style={{ border: 'none', background: 'none' }} onClick={() => handleDelete(item)} >  <BsTrashFill className='trash' size='1.3em' 
+                                                     /> </button>
+                                                </Col>
                                             </Row>
                                         </ListGroupItem>
                                     ))}
@@ -65,13 +100,35 @@ const Cart = () => {
                             <ListGroup variant='flush'>
                                 <ListGroup.Item className='my-3 text-center'>
                                     <Row className='mb-3'>
-                                        <h4>Subtotal (x items) : $ price</h4>
+                                    <Col><h6>  Price ({cartItems.reduce((a, c) => a + c.qty, 0 )} items) </h6></Col>
+                                    <Col> <h6> ${cartItems.reduce((a, c) => a+ c.price * c.qty, 0 ).toFixed(2)} </h6></Col>
+                                        {/* <h5>Total ({cartItems.reduce((a, c) => a + c.qty, 0 )} items) : 
+                                        ${cartItems.reduce((a, c) => a+ c.price * c.qty, 0 ).toFixed(2)}
+                                        </h5> */}
                                     </Row>
                                 </ListGroup.Item>
-                                <ListGroup.Item>
-                                    <div className="d-grid">
-                                        <Button variant='primary'>Proceed to Checkout</Button>
-                                    </div>
+                                <ListGroup.Item className='my-3 text-center'>
+                                    <Row className='mb-3'>
+                                    <Col><h6>  Delivery Charges </h6></Col>
+                                    <Col> <h6 style={{color:'green'}}> Free </h6></Col>
+                                        {/* <h5>Total ({cartItems.reduce((a, c) => a + c.qty, 0 )} items) : 
+                                        ${cartItems.reduce((a, c) => a+ c.price * c.qty, 0 ).toFixed(2)}
+                                        </h5> */}
+                                    </Row>
+                                </ListGroup.Item>
+                                <ListGroup.Item className='my-3 text-center'>
+                                    <Row className='mb-3'>
+                                    <Col><h5>  Total Amount </h5></Col>
+                                    <Col> <h5> ${cartItems.reduce((a, c) => a+ c.price * c.qty, 0 ).toFixed(2)} </h5></Col>
+                                        {/* <h5>Total ({cartItems.reduce((a, c) => a + c.qty, 0 )} items) : 
+                                        ${cartItems.reduce((a, c) => a+ c.price * c.qty, 0 ).toFixed(2)}
+                                        </h5> */}
+                                    </Row>
+                                </ListGroup.Item>
+                                <ListGroup.Item className='text-center'>
+                                    {/* <div className="d-grid"> */}
+                                        <Button variant='primary' disabled={cartItems.length === 0} onClick={handleCheckout}>Proceed to Checkout</Button>
+                                    {/* </div> */}
                                 </ListGroup.Item>
                             </ListGroup>
                         </Card.Body>

@@ -108,7 +108,7 @@ const data = {
             genre:"novel",
             image:"/images/img4.jpg",
             year:1960,
-            price:280,
+            price:28000.00,
             stock:15,
             rating:3.8,
             review:26,
