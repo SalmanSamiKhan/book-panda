@@ -21,7 +21,8 @@ const Login = () => {
         <button type="submit" className="btn btn-primary">Submit</button>
     </form>
     <div className="my-3">
-        <h5 className='my-44' style={{textDecoration:'underline'}}> <Link to='signup'>Create your account</Link> </h5>
+        <h6>New to Bookmania?</h6>{' '}
+        <h6 className='' style={{textDecoration:'underline'}}> <Link to='/signup'>Create your Bookmania account</Link> </h6>
     </div>
 </div>
   )
