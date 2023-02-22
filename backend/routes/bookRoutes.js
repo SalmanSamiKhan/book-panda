@@ -1,23 +1,24 @@
 import express from 'express'
 import data from '../data.js'
+import Book from '../models/bookModel.js'
 
 const bookRoutes = express.Router()
 
-bookRoutes.get('/slug/:slug', (req,res)=>{
-    const book = data.books.find(x=>x.slug===req.params.slug)
-    if(book){
+bookRoutes.get('/slug/:slug', async (req, res) => {
+    const book = await Book.findOne({slug:req.params.slug})
+    if (book) {
         res.send(book)
-    }else{
+    } else {
         res.status(404).send({message:'Book not found'})
     }
 })
 
-bookRoutes.get('/id/:id', (req,res)=>{
-    const book = data.books.find(x=>x._id===req.params.id)
+bookRoutes.get('/id/:id', async (req, res) => {
+    const book = await Book.findById(req.params.id)
     if(book){
-        res.send(book)
+    res.send(book)
     }else{
-        res.status(404).send({message:'Book not found'})
+    res.status(404).send({ message: 'Book not found' })
     }
 })
 

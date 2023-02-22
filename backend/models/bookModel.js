@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const bookSchema = new Schema(
+const bookSchema = new mongoose.Schema(
     {
     name:{type:String, required:true},
     slug:{type:String, required:true},

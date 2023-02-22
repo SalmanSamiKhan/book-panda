@@ -100,7 +100,7 @@ const BookPage = () => {
                   <Rating rating={book.rating} />
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  Price : $ {book.price}
+                  Price : ${book.price}
                 </ListGroup.Item>
                 <ListGroup.Item>
                   Description:
