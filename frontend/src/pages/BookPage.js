@@ -66,7 +66,7 @@ const BookPage = () => {
 
     const {data} = await axios.get(`/api/book/id/${book._id}`)
     if(data.stock<qty){
-      toast.error('Sorry! You have reached maximum limit for this product.')
+      toast.error('You exceeded maximum limit for this product.')
       return;
     }
     cartDispatch({

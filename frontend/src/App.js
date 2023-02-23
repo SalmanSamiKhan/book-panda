@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify'
+import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 import NavigationBar from "./components/NavigationBar";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
@@ -17,7 +18,7 @@ function App() {
   return (
     <Router>
       <div className="d-flex flex-column site-container">
-        <ToastContainer position='bottom-right' autoClose={2000} limit={1} />
+        <ToastContainer position='bottom-right' transition={Zoom} hideProgressBar autoClose={2000} limit={1} />
         <header>
           <NavigationBar />
         </header>

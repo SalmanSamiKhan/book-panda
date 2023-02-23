@@ -12,7 +12,8 @@ const initialState = {
 
 const ACTIONS = {
     ADD: 'CART_ADD_ITEM',
-    REMOVE: 'CART_REMOVE_ITEM'
+    REMOVE: 'CART_REMOVE_ITEM',
+    LOGIN:'USER_LOGIN'
 }
 
 const reducer = (state, action) => {
@@ -37,6 +38,9 @@ const reducer = (state, action) => {
             )
             localStorage.setItem('cartItems', JSON.stringify(cartItems))
             return { ...state, cart: { ...state.cart, cartItems } }
+        }
+        case ACTIONS.LOGIN:{
+            return {...state, userInfo:action.payload}
         }
         default:
             return state

@@ -34,7 +34,7 @@ const Cart = () => {
     }
 
     const handleCheckout = () => {
-        navigate('/signin?redirect=/shipping') // authentication
+        navigate('/login?redirect=/shipping') // if user is logged in navigate to shipping page
     }
     return (
         <div className='container my-5'>
