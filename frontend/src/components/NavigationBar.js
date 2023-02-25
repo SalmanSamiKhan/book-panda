@@ -15,6 +15,7 @@ const NavigationBar = () => {
     dispatch({type:'USER_LOGOUT'})
     localStorage.removeItem('userInfo')
     localStorage.removeItem('shippingAddress')
+    localStorage.removeItem('paymentMethod')
     navigate('/login')
   }
   return (
@@ -28,7 +29,7 @@ const NavigationBar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <LinkContainer to="/"><Nav.Link>Home</Nav.Link></LinkContainer>
-              <LinkContainer to="/about"><Nav.Link>About</Nav.Link></LinkContainer>
+              {/* <LinkContainer to="/about"><Nav.Link>About</Nav.Link></LinkContainer> */}
               {userInfo
               ?(<NavDropdown title={userInfo.name}>
                 {/* <Nav.Link>My Profile</Nav.Link>
