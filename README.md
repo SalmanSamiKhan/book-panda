@@ -1,7 +1,7 @@
 
-# Online-Todolist
+# Bookmania
 
-An online note taking app
+An ecommerce bookshop
 
 
 ## Screenshots
