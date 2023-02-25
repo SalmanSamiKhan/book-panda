@@ -54,9 +54,61 @@ const data = {
             year:1960,
             price:24.99,
             stock:12,
-            rating:3.8,
+            rating:4.6,
             review:26,
             desc:"To Kill a Mockingbird is primarily a novel about growing up under extraordinary circumstances in the 1930s in the Southern United States."
+        },
+        {
+            name:"1984",
+            slug:"1-9-8-4",
+            author:"George Orwell",
+            genre:"novel",
+            image:"/images/img5.jpg",
+            year:1949,
+            price:13.39,
+            stock:17,
+            rating:4.7,
+            review:56,
+            desc:"1984 at a Glance · The setting of 1984 is a dystopia: an imagined world that is far worse than our own, as opposed to a utopia, which is an ideal place or state."
+        },
+        {
+            name:"The Great Gatsby",
+            slug:"the-great-gatsby",
+            author:"F. Scott Fitzgerald",
+            genre:"novel",
+            image:"/images/img6.jpg",
+            year:1925,
+            price:14.19,
+            stock:27,
+            rating:4.3,
+            review:33,
+            desc:"The story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island."
+        },
+        {
+            name:"Animal Farm",
+            slug:"animal-farm",
+            author:"George Orwell",
+            genre:"novel",
+            image:"/images/img7.jpg",
+            year:1945,
+            price:15.75,
+            stock:25,
+            rating:4.5,
+            review:46,
+            desc:"George Orwell's timeless and timely allegorical novel—a scathing satire on a downtrodden society's blind march towards totalitarianism."
+        },
+        {
+            name:"Pride and Prejudice",
+            slug:"pride-and-prejudice",
+            author:"Jane Austen",
+            genre:"novel",
+            image:"/images/img8.jpg",
+            year:1813,
+            price:11.75,
+            stock:28,
+            rating:4.1,
+            review:34,
+            desc:"Pride and Prejudice follows the turbulent relationship between Elizabeth Bennet, the daughter of a country gentleman, and Fitzwilliam Darcy, a rich aristocratic landowner."
         },
     ],
     users:[
@@ -67,8 +119,8 @@ const data = {
             isAdmin:true
         },
         {
-            name:'John Doe',
-            email:'john@mail.com',
+            name:'user',
+            email:'user@mail.com',
             password:bcrypt.hashSync('123456'),
             isAdmin:false
         }

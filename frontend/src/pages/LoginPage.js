@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -14,6 +14,7 @@ const Login = () => {
     // if redirect not present, means not coming from cartpage then go to homepage
     const redirect = redirectInUrl? redirectInUrl:'/'
     const {state, dispatch:loginDispatch} = useContext(Store)
+    const {userInfo} = state
     const navigate = useNavigate()
     const handleSubmit = async (e)=>{
         e.preventDefault()
@@ -30,6 +31,12 @@ const Login = () => {
             toast.error('Invalid Email or Password')
         }
     }
+    useEffect(() => {
+        if(userInfo){
+            navigate(redirect)
+        }
+    }, [userInfo,navigate,redirect])
+    
   return (
     <div className='login container my-5' style={{maxWidth:'600px'}}>
     <Helmet>
@@ -51,7 +58,7 @@ const Login = () => {
     </form>
     <div className="my-3">
         <h6>New to Bookmania?</h6>{' '}
-        <h6 className='' style={{textDecoration:'underline'}}> <Link to={`/signup?redirect=${redirect}`}>Create your Bookmania account</Link> </h6> 
+        <h6 className='' style={{textDecoration:'underline'}}> <Link to={`/signup?redirect=${redirect}`}>Create your account</Link> </h6> 
         {/* redirect is sent from procedd to checkout on cart screen. redirect value is shipping . so it will redirect to shipping page */}
     </div>
 </div>

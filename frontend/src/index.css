@@ -126,6 +126,15 @@ select:checked{
   }
   }
 
+.checkout-steps > div{
+  border-bottom: .2rem solid grey;
+  color: grey;
+}
+.checkout-steps > div.active{
+  border-bottom: .2rem solid #3b71ca;
+  color: #3b71ca;
+}
+
 /* @media (min-width:991px ) and (max-width:1199px){
   .book-select{
     width: 80px;

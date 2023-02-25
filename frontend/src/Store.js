@@ -3,7 +3,14 @@ import { createContext, useReducer } from "react";
 export const Store = createContext()
 
 const initialState = {
+    // check if there is any logged in user or not
+    userInfo: localStorage.getItem('userInfo')
+        ? JSON.parse(localStorage.getItem('userInfo'))
+        : null,
     cart: {
+        shippingAddress: localStorage.getItem('shippingAddress')
+            ? JSON.parse(localStorage.getItem('shippingAddress'))
+            : {},
         cartItems: localStorage.getItem('cartItems')
             ? JSON.parse(localStorage.getItem('cartItems'))
             : [],
@@ -13,7 +20,10 @@ const initialState = {
 const ACTIONS = {
     ADD: 'CART_ADD_ITEM',
     REMOVE: 'CART_REMOVE_ITEM',
-    LOGIN:'USER_LOGIN'
+    SIGNUP: 'USER_SIGNUP',
+    LOGIN: 'USER_LOGIN',
+    LOGOUT: 'USER_LOGOUT',
+    SHIPPING: 'SAVE_SHIPPING_ADDRESS'
 }
 
 const reducer = (state, action) => {
@@ -39,8 +49,19 @@ const reducer = (state, action) => {
             localStorage.setItem('cartItems', JSON.stringify(cartItems))
             return { ...state, cart: { ...state.cart, cartItems } }
         }
-        case ACTIONS.LOGIN:{
-            return {...state, userInfo:action.payload}
+        case ACTIONS.SIGNUP: {
+            return { ...state, userInfo: action.payload }
+        }
+        case ACTIONS.LOGIN: {
+            return { ...state, userInfo: action.payload }
+        }
+        case ACTIONS.LOGOUT: {
+            return { ...state, userInfo: null, cart:{
+                cartItems: [], shippingAddress: {}
+            }}
+        }
+        case ACTIONS.SHIPPING: {
+            return { ...state, cart: { ...state.cart, shippingAddress: action.payload } }
         }
         default:
             return state

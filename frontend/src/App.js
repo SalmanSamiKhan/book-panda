@@ -12,7 +12,9 @@ import CartPage from "./pages/CartPage";
 import BookPage from "./pages/BookPage";
 import { Container } from 'react-bootstrap';
 import Footer from "./components/Footer";
-import CheckoutPage from "./pages/CheckoutPage";
+import CheckoutPage from "./components/CheckoutSteps";
+import ShippingPage from "./pages/ShippingPage";
+import PaymentPage from "./pages/PaymentPage";
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/cart" element={<CartPage />} />
               <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/shipping" element={<ShippingPage />} />
+              <Route path="/payment" element={<PaymentPage />} />
             </Routes>
           </Container>
         </main>
