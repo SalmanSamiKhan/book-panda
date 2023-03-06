@@ -2,6 +2,16 @@ import { createContext, useReducer } from "react";
 
 export const Store = createContext()
 
+const ACTIONS = {
+    ADD: 'CART_ADD_ITEM',
+    REMOVE: 'CART_REMOVE_ITEM',
+    SIGNUP: 'USER_SIGNUP',
+    LOGIN: 'USER_LOGIN',
+    LOGOUT: 'USER_LOGOUT',
+    SHIPPING: 'SAVE_SHIPPING_DETAILS',
+    PAYMENT:'SAVE_PAYMENT_METHOD'
+}
+
 const initialState = {
     // check if there is any logged in user or not
     userInfo: localStorage.getItem('userInfo')
@@ -18,15 +28,6 @@ const initialState = {
             ? JSON.parse(localStorage.getItem('cartItems'))
             : [],
     }
-}
-
-const ACTIONS = {
-    ADD: 'CART_ADD_ITEM',
-    REMOVE: 'CART_REMOVE_ITEM',
-    SIGNUP: 'USER_SIGNUP',
-    LOGIN: 'USER_LOGIN',
-    LOGOUT: 'USER_LOGOUT',
-    SHIPPING: 'SAVE_SHIPPING_DETAILS'
 }
 
 const reducer = (state, action) => {
@@ -66,7 +67,7 @@ const reducer = (state, action) => {
         case ACTIONS.SHIPPING: {
             return { ...state, cart: { ...state.cart, shippingAddress: action.payload } }
         }
-        case 'SAVE_PAYMENT_METHOD':
+        case ACTIONS.PAYMENT:
             return{
                 ...state,
                 cart:{

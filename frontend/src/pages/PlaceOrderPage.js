@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { Link, useNavigate } from 'react-router-dom'
+import {FaEdit} from 'react-icons/fa'
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -68,7 +69,7 @@ export default function PlaceOrderPage() {
                                 {cart.shippingAddress.address},{' '}
                                 {cart.shippingAddress.country}.
                             </Card.Text>
-                            <Link to='/shipping'><i class="fas fa-edit fa-lg" style={{ color: '#3b71ca' }}></i></Link>
+                            <Link to='/shipping'> <FaEdit size='1.3em'/> </Link>
                         </Card.Body>
                     </Card>
 
@@ -78,7 +79,7 @@ export default function PlaceOrderPage() {
                             <Card.Text>
                                 <strong>Method:</strong> {cart.paymentMethod} <br />
                             </Card.Text>
-                            <Link to='/shipping'><i class="fas fa-edit fa-lg" style={{ color: '#3b71ca' }}></i></Link>
+                            <Link to='/payment'> <FaEdit size='1.3em'/> </Link>
                         </Card.Body>
 
                     </Card>
@@ -91,7 +92,7 @@ export default function PlaceOrderPage() {
                                         <Row className="align-items-center">
                                             <Col md={6}>
                                                 <img src={item.image} alt={item.name} className="img-fluid rounded img-thumbnail" />{' '}
-                                                <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                                                <Link to={`/book/${item.slug}`}>{item.name}</Link>
                                             </Col>
                                             <Col md={3}>{item.qty}</Col>
                                             <Col md={3}>{item.price}</Col>
@@ -99,7 +100,7 @@ export default function PlaceOrderPage() {
                                     </ListGroup.Item>
                                 ))}
                             </ListGroup>
-                            <Link to='/cart'><i class="fas fa-edit fa-lg" style={{ color: '#3b71ca' }}></i></Link>
+                            <Link to='/cart'> <FaEdit size='1.3em'/> </Link>
                         </Card.Body>
 
                     </Card>

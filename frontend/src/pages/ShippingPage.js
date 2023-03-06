@@ -14,7 +14,7 @@ function ShippingPage() {
     const [postal, setPostal] = useState(shippingAddress.postal || '')
     const [country, setCountry] = useState(shippingAddress.country || '')
     useEffect(() => {
-        if (!userInfo) {
+        if (!userInfo) { // if user not logged in
             navigate('/login?redirect=/shipping')
         }
     }, [userInfo, navigate])
