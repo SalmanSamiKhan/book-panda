@@ -12,54 +12,52 @@ code {
     monospace;
 }
 
-.site-container{
+.site-container {
   min-height: 100vh;
 }
-main{
+main {
   flex: 1;
 }
-a{
+a {
   text-decoration: none;
 }
 
-
-.books{
+.books {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   /* margin: 2rem 0 2rem 0; */
 }
 
-.book{
+.book {
   text-align: center;
   margin: 1rem;
   box-shadow: none;
 }
 
-
-.book img{
+.book img {
   height: 200px;
   width: 150px;
 }
-.book img:hover{
+.book img:hover {
   opacity: 0.8;
   transform: scale(1.05);
 }
 
-.book-info{
+.book-info {
   /* padding: 1rem; */
 }
 
-.rating span{
-  color: #3b71ca;
+.rating span {
+  color: orange;
 }
 
-.rat{
+.rat {
   display: flex;
   justify-content: center;
 }
 
-.img-fluid{
+.img-fluid {
   height: 500px;
   width: 450px;
 }
@@ -71,67 +69,68 @@ a{
   transform: scale(1.2);
 }
 
-.cart:hover{
-  animation: shake 0.7s cubic-bezier(.36,.07,.19,.97) both;
+.cart:hover {
+  animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   perspective: 1000px;
 }
 
-
 @keyframes shake {
-  10%, 90% {
+  10%,
+  90% {
     transform: translate3d(-1px, 0, 0);
   }
-  20%, 80% {
+  20%,
+  80% {
     transform: translate3d(2px, 0, 0);
   }
-  
-  30%, 50%, 70% {
+
+  30%,
+  50%,
+  70% {
     transform: translate3d(-2px, 0, 0);
   }
-  40%, 60% {
+  40%,
+  60% {
     transform: translate3d(2px, 0, 0);
-}
+  }
 }
 
-.toggle-icon:active{
+.toggle-icon:active {
   transform: scale(1.2);
 }
 
-
 /* Cart Page  */
 
-.img-thumbnail{
+.img-thumbnail {
   height: 60px;
   width: 60px;
 }
 
-select{
+select {
   border-radius: 15%;
 }
 
-select:hover{
+select:hover {
   border: 2px solid skyblue;
 }
 
-select:checked{
-  border: 2px solid 
+select:checked {
+  border: 2px solid;
 }
-
-
 
 @media (min-width: 1025px) {
   .h-custom {
-  height: 100vh !important;
+    height: 100vh !important;
   }
-  }
+}
 
-.checkout-steps > div{
-  border-bottom: .2rem solid grey;
+.checkout-steps > div {
+  border-bottom: 0.2rem solid grey;
   color: grey;
 }
-.checkout-steps > div.active{
-  border-bottom: .2rem solid #3b71ca;
+.checkout-steps > div.active {
+  border-bottom: 0.2rem solid #3b71ca;
   color: #3b71ca;
 }
 
