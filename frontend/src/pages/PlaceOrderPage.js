@@ -64,9 +64,9 @@ export default function PlaceOrderPage() {
                             <Card.Title>Shipping</Card.Title>
                             <Card.Text>
                                 <strong>Name:</strong> {cart.shippingAddress.name} <br />
-                                <strong>Address:</strong> {cart.shippingAddress.postal},{' '}
+                                <strong>Address:</strong> {cart.shippingAddress.address},{' '}
                                 {cart.shippingAddress.city},{' '}
-                                {cart.shippingAddress.address},{' '}
+                                {cart.shippingAddress.postal},{' '}
                                 {cart.shippingAddress.country}.
                             </Card.Text>
                             <Link to='/shipping'> <FaEdit size='1.3em'/> </Link>
@@ -107,7 +107,7 @@ export default function PlaceOrderPage() {
                 </Col>
 
                 <Col md={4}>
-                    <Card>
+                    <Card className='my-3'>
                         <Card.Body>
                             <Card.Title>Order Summary</Card.Title>
                             <ListGroup variant="flush">
