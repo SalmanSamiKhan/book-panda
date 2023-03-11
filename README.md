@@ -1,8 +1,6 @@
-
 # Bookmania
 
 An ecommerce bookshop
-
 
 ## Screenshots
 
@@ -13,16 +11,16 @@ An ecommerce bookshop
 ![Online-Todolist](ss5.png)
 ![Online-Todolist](ss6.png)
 
-
 ## Live
-Deployed on Render <br/>
-[Live](https://online-todolist.onrender.com)
 
+[Live](https://bookmania.cyclic.app/)
 
 ## About
+
 This is an ecommerce book shop website
 
 ### Functionality
+
 - Fully functional ecommerce website
 - See product details
 - User signup
