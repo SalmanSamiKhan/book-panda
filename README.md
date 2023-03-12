@@ -2,14 +2,11 @@
 
 An ecommerce bookshop
 
-## Live
-
-[Live](https://bookmania.cyclic.app/)
+# [Live](https://bookmania.cyclic.app/)
 
 ## Screenshots
 
 ![Online-Todolist](ss1.png)
-![Online-Todolist](ss2.png)
 ![Online-Todolist](ss3.png)
 ![Online-Todolist](ss4.png)
 ![Online-Todolist](ss6.png)
