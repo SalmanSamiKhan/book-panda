@@ -1,6 +1,6 @@
 # Bookmania
 
-An ecommerce bookshop
+## An ecommerce bookshop
 
 # [Live](https://bookmania.cyclic.app/)
 
